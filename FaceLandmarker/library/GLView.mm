@@ -65,6 +65,7 @@
                          nose:(CGPoint)nose
                  glassesWidth:(float)glassesWidth {
 
+
     
     
     HeadPoseData pose = computeHeadPose(leftEye.x, leftEye.y, rightEye.x, rightEye.y, nose.x, nose.y, glassesWidth);
@@ -72,11 +73,15 @@
     glViewport(0, 0, _backingWidth, _backingHeight);
     glClearColor(0, 0, 0, 0);
     glClear(GL_COLOR_BUFFER_BIT);
-
+    
+    
     float centerX = (leftEye.x + rightEye.x) / 2.0f;
     float centerY = (leftEye.y + rightEye.y) / 2.0f;
+    NSLog(@"🔎 Objective-C centerX: %.2f, centerY: %.2f", centerX, centerY);
 
-    renderer.render(pose, centerX, centerY);
+
+
+    renderer.render(pose, centerX, centerY , _backingWidth, _backingHeight);
 
     [_context presentRenderbuffer:GL_RENDERBUFFER];
     

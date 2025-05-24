@@ -29,6 +29,13 @@
     CGPoint leftEye = [faceOverlay.dots[263] CGPointValue];
     CGPoint rightEye = [faceOverlay.dots[33] CGPointValue];
     CGPoint nose = [faceOverlay.dots[168] CGPointValue];
+      
+      NSLog(@"🔎 leftEye: (%.2f, %.2f), rightEye: (%.2f, %.2f), nose: (%.2f, %.2f)",
+            leftEye.x, leftEye.y,
+            rightEye.x, rightEye.y,
+            nose.x, nose.y);
+      
+      
     // عرض النظارة بالرندر ثلاثي الأبعاد
     [self.glView updatePoseWithLeftEye:leftEye
                               rightEye:rightEye
@@ -40,31 +47,33 @@
 }
 
 + (NSArray<FaceOverlay *> *)faceOverlaysFromLandmarks:(NSArray<NSArray<NSValue *> *> *)landmarks
-                                      imageSize:(CGSize)imageSize
-                                  overlayViewSize:(CGSize)overlayViewSize
-                                 imageContentMode:(UIViewContentMode)imageContentMode
-                                 orientation:(UIImageOrientation)orientation {
+                                             imageSize:(CGSize)imageSize
+                                        overlayViewSize:(CGSize)overlayViewSize
+                                      imageContentMode:(UIViewContentMode)imageContentMode
+                                            orientation:(UIImageOrientation)orientation {
 
-    // هنا من الكود القديم (faceOverlays في Swift) ➜ كتابته بالـ Objective-C++
     NSMutableArray<FaceOverlay *> *overlays = [NSMutableArray array];
-    
+
     for (NSArray<NSValue *> *faceLandmarks in landmarks) {
-        // احسب التحويلات بناء على orientation
         NSMutableArray<NSValue *> *dots = [NSMutableArray array];
+
         for (NSValue *pointValue in faceLandmarks) {
-            CGPoint point = [pointValue CGPointValue];
-            // افترض مثلًا:
-            [dots addObject:[NSValue valueWithCGPoint:point]];
+            CGPoint normalizedPoint = [pointValue CGPointValue];
+            CGPoint mappedPoint;
+
+            mappedPoint.x = normalizedPoint.x * overlayViewSize.width;
+            mappedPoint.y = normalizedPoint.y * overlayViewSize.height;
+
+            [dots addObject:[NSValue valueWithCGPoint:mappedPoint]];
         }
-        
-        // افترض لا يوجد خطوط حالياً:
+
         NSArray<LineConnection *> *connections = @[];
-        
         FaceOverlay *overlay = [[FaceOverlay alloc] initWithDots:dots lineConnections:connections];
         [overlays addObject:overlay];
     }
-    
+
     return overlays;
 }
+
 
 @end

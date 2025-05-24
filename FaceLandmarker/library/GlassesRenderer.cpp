@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stb_image.h"
+#include <cmath>
 
-// ملاحظة: لازم يكون متغير عادي (مش const) عشان نعدل الأبعاد بناءً على aspect
 static GLfloat quadVertices[8] = {
     -0.5f, -0.5f,
      0.5f, -0.5f,
@@ -29,12 +29,13 @@ void GlassesRenderer::initShaders() {
     const char* vertexShaderSource =
         "attribute vec4 position;\n"
         "attribute vec2 texCoord;\n"
-        "uniform mat4 modelMatrix;\n"  // 🟩 مصفوفة موحدة
+        "uniform mat4 modelMatrix;\n"
         "varying vec2 v_TexCoord;\n"
         "void main() {\n"
         "  gl_Position = modelMatrix * position;\n"
         "  v_TexCoord = texCoord;\n"
         "}";
+
     const char* fragmentShaderSource =
         "precision mediump float;\n"
         "varying vec2 v_TexCoord;\n"
@@ -62,13 +63,12 @@ void GlassesRenderer::initShaders() {
     texCoordHandle = glGetAttribLocation(programId, "texCoord");
     textureHandle = glGetUniformLocation(programId, "texture");
     modelMatrixHandle = glGetUniformLocation(programId, "modelMatrix");
+
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
     printf("✅ Shaders initialized\n");
 }
-
-
 
 void GlassesRenderer::loadImageAsTexture(const char* path, int screenWidth, int screenHeight) {
     printf("🔎 Loading texture from: %s\n", path);
@@ -80,20 +80,12 @@ void GlassesRenderer::loadImageAsTexture(const char* path, int screenWidth, int 
         return;
     }
 
-    printf("✅ Loaded texture from file: %dx%d\n", width, height);
+    printf("✅ Loaded texture: %dx%d\n", width, height);
 
-    // ✅ حساب aspect ratio للصورة
     float aspect = (float)width / (float)height;
-    printf("📐 Image Aspect Ratio: %f\n", aspect);
-
-    // ✅ حساب نسبة أبعاد الشاشة
     float screenAspect = (float)screenWidth / (float)screenHeight;
-    printf("📱 Screen Aspect Ratio: %f\n", screenAspect);
-
-    // ✅ final aspect للتصحيح
     float finalAspect = aspect / screenAspect;
 
-    // ✅ تعديل الـ vertices بناءً على aspect المعدل
     quadVertices[0] = -0.5f * finalAspect; quadVertices[1] = -0.5f;
     quadVertices[2] =  0.5f * finalAspect; quadVertices[3] = -0.5f;
     quadVertices[4] = -0.5f * finalAspect; quadVertices[5] =  0.5f;
@@ -111,23 +103,81 @@ void GlassesRenderer::loadImageAsTexture(const char* path, int screenWidth, int 
                   0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
     stbi_image_free(data);
-
     printf("✅ Texture uploaded to GPU!\n");
 }
-
-
-void GlassesRenderer::render(const HeadPoseData& pose, float centerX, float centerY) {
+void GlassesRenderer::render(const HeadPoseData& pose, float centerX, float centerY, int backingWidth, int backingHeight) {
     glUseProgram(programId);
 
-    float s = 0.2f;  // حجم نص الشاشة
-    float modelMatrix[16] = {
+
+    // 🟩 أولًا: حول centerX, centerY لنسب (0-1)
+    float normalizedX = centerX / (float)backingWidth;
+    float normalizedY = centerY / (float)backingHeight;
+
+    // 🟩 ثم إلى NDC (-1, 1) واضف عامل التصحيح
+    float translationScaleX = 2.5f; // ابدأ بـ 1.5 كمثال للتصحيح
+    float translationScaleY = 2.5f;
+
+    normalizedX = (normalizedX * 2.0f - 1.0f) * translationScaleX;
+    normalizedY = (1.0f - normalizedY * 2.0f) * translationScaleY;
+    printf("🔎 Translation NDC (with scale): X=%.6f, Y=%.6f\n", normalizedX, normalizedY);
+
+    // 🟩 مصفوفة modelMatrix (تدوير + تكبير + تحريك)
+
+    float s = pose.scale/ ((float)backingWidth / 40);
+    
+  
+    
+    float cosYaw = cos(pose.yawAngle);
+    float sinYaw = sin(pose.yawAngle);
+    float cosPitch = cos(pose.pitchAngle);
+    float sinPitch = sin(pose.pitchAngle);
+    float cosRoll = cos(pose.rollAngle);
+    float sinRoll = sin(pose.rollAngle);
+    float rollMatrix[16] = {
+        cosRoll, -sinRoll, 0, 0,
+        sinRoll,  cosRoll, 0, 0,
+        0,        0,       1, 0,
+        0,        0,       0, 1
+    };
+
+    float yawMatrix[16] = {
+        cosYaw,  0, sinYaw, 0,
+        0,       1, 0,      0,
+       -sinYaw, 0, cosYaw,  0,
+        0,       0, 0,      1
+    };
+
+    float pitchMatrix[16] = {
+        1, 0,        0,         0,
+        0, cosPitch, -sinPitch, 0,
+        0, sinPitch, cosPitch,  0,
+        0, 0,        0,         1
+    };
+
+    float scaleMatrix[16] = {
         s, 0, 0, 0,
         0, s, 0, 0,
-        0, 0, 1, 0,
+        0, 0, s, 0,
         0, 0, 0, 1
     };
+
+    float translateMatrix[16] = {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        normalizedX, normalizedY, 0, 1
+    };
+
+    // 🟩 دمج المصفوفات: T * Rz * Ry * Rx * S
+    float temp1[16], temp2[16], temp3[16], modelMatrix[16];
+    multiplyMatrix(rollMatrix, pitchMatrix, temp1);
+    multiplyMatrix(temp1, yawMatrix, temp2);
+    multiplyMatrix(temp2, scaleMatrix, temp3);
+    multiplyMatrix(translateMatrix, temp3, modelMatrix);
+
     glUniformMatrix4fv(modelMatrixHandle, 1, GL_FALSE, modelMatrix);
-    
+
+    // 🔴 الرسم
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureId);
     glUniform1i(textureHandle, 0);
@@ -146,13 +196,22 @@ void GlassesRenderer::render(const HeadPoseData& pose, float centerX, float cent
     glDisableVertexAttribArray(positionHandle);
     glDisableVertexAttribArray(texCoordHandle);
 
-    
-
-    
     GLenum err = glGetError();
     if (err != GL_NO_ERROR) {
         printf("⚠️ OpenGL Error: %x\n", err);
     } else {
-        printf("✅ Rendered Texture!\n");
+        printf("✅ Rendered Texture w/ dynamic pose!\n");
+    }
+}
+
+void GlassesRenderer::multiplyMatrix(const float* a, const float* b, float* result) {
+    for (int row = 0; row < 4; ++row) {
+        for (int col = 0; col < 4; ++col) {
+            result[row * 4 + col] =
+                a[row * 4 + 0] * b[0 * 4 + col] +
+                a[row * 4 + 1] * b[1 * 4 + col] +
+                a[row * 4 + 2] * b[2 * 4 + col] +
+                a[row * 4 + 3] * b[3 * 4 + col];
+        }
     }
 }

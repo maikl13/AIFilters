@@ -7,9 +7,9 @@
 class GlassesRenderer {
 public:
     void setup();
-    void render(const HeadPoseData& pose, float centerX, float centerY);
+    void render(const HeadPoseData& pose, float centerX, float centerY, int backingWidth, int backingHeight);
     void loadImageAsTexture(const char* path, int screenWidth, int screenHeight);
-
+    void multiplyMatrix(const float* a, const float* b, float* result);
 private:
     GLuint textureId;
     GLuint programId;
@@ -20,6 +20,7 @@ private:
     GLuint textureHandle;
     GLint modelMatrixHandle;
     void initShaders();
+
 
 };
 
