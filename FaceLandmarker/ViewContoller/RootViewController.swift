@@ -140,10 +140,7 @@ class RootViewController: UIViewController {
         withIdentifier: Constants.cameraViewControllerStoryBoardId) as? CameraViewController else {
       return
     }
-    
-    viewController.inferenceResultDeliveryDelegate = self
-    viewController.interfaceUpdatesDelegate = self
-    
+  
     cameraViewController = viewController
   }
   

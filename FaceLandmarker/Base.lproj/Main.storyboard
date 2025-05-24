@@ -115,7 +115,7 @@
             <objects>
                 <viewController id="zgE-Xo-ZSc" customClass="BottomSheetViewController" customModule="FaceLandmarker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Knd-PN-meG">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOI-Gh-SLK">
@@ -415,10 +415,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraUnavailableLabel" destination="Vtt-MU-A4x" id="gge-K6-hho"/>
-                        <outlet property="overlayView" destination="m4r-LP-sGS" id="qEI-SQ-5mM"/>
                         <outlet property="previewView" destination="uBH-jh-cod" id="0He-2J-Ihh"/>
-                        <outlet property="resumeButton" destination="xgW-WZ-vbo" id="ahB-QA-JdH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEJ-Gu-EMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

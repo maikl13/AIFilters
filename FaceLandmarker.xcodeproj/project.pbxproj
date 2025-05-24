@@ -15,8 +15,6 @@
 		BF3499E42ACA6484007E6081 /* FaceLandmarkerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3499DE2ACA6484007E6081 /* FaceLandmarkerService.swift */; };
 		BF3499E52ACA6484007E6081 /* CameraFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3499DF2ACA6484007E6081 /* CameraFeedService.swift */; };
 		BF3499E62ACA6484007E6081 /* FaceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3499E12ACA6484007E6081 /* FaceOverlay.swift */; };
-		BF3499E82ACA708D007E6081 /* FaceLandmarkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3499E72ACA708D007E6081 /* FaceLandmarkerTests.swift */; };
-		BF3499EA2ACA720A007E6081 /* business-person.png in Resources */ = {isa = PBXBuildFile; fileRef = BF3499E92ACA720A007E6081 /* business-person.png */; };
 		BFD91ED62A74F2F300FD4649 /* face_landmarker.task in Resources */ = {isa = PBXBuildFile; fileRef = BFD91ED52A74F2F300FD4649 /* face_landmarker.task */; };
 		BFD91ED92A7889DF00FD4649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD91ED82A7889DF00FD4649 /* Assets.xcassets */; };
 		BFEE41EB2A45351E00BA1A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE41EA2A45351E00BA1A35 /* AppDelegate.swift */; };
@@ -26,17 +24,16 @@
 		CC9DBE1CC48C4DB446229F58 /* Pods_FaceLandmarker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB757D4516FCE33E7F93E0B /* Pods_FaceLandmarker.framework */; };
 		CE01F8BF2DE110B5009E62DE /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = CE01F8BE2DE110B4009E62DE /* glasses.png */; };
 		CE01F8C12DE152EA009E62DE /* dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE01F8C02DE152E9009E62DE /* dragon.png */; };
+		CE01F8C32DE1F747009E62DE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE01F8C22DE1F747009E62DE /* OpenGLES.framework */; };
+		CE01F8C52DE1F74F009E62DE /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE01F8C42DE1F74F009E62DE /* GLKit.framework */; };
+		CE01F8C72DE1F775009E62DE /* GlassesRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE01F8C62DE1F775009E62DE /* GlassesRenderer.cpp */; };
+		CE01F8CA2DE1F94B009E62DE /* OverlayView.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE01F8C92DE1F94B009E62DE /* OverlayView.mm */; };
+		CE01F8CE2DE1F9DC009E62DE /* HeadPoseCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE01F8CD2DE1F9DC009E62DE /* HeadPoseCalculator.cpp */; };
+		CE01F8D12DE1FA2A009E62DE /* vertex_shader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CE01F8D02DE1FA2A009E62DE /* vertex_shader.glsl */; };
+		CE01F8D32DE1FA3D009E62DE /* fragment_shader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CE01F8D22DE1FA3D009E62DE /* fragment_shader.glsl */; };
+		CE01F8D72DE1FB04009E62DE /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE01F8D62DE1FB04009E62DE /* GLView.mm */; };
+		CEBC5E952DE2039B00155D9B /* FaceOverlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E942DE2039B00155D9B /* FaceOverlay.mm */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BFEE41FE2A45351F00BA1A35 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFEE41DF2A45351E00BA1A35 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BFEE41E62A45351E00BA1A35;
-			remoteInfo = FaceLandmarker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		40B88274C9701B9197F0726E /* Pods-FaceLandmarkerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceLandmarkerTests.release.xcconfig"; path = "Target Support Files/Pods-FaceLandmarkerTests/Pods-FaceLandmarkerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,10 +56,25 @@
 		BFEE41EC2A45351E00BA1A35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BFEE41F62A45351F00BA1A35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFEE41F82A45351F00BA1A35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFEE41FD2A45351F00BA1A35 /* FaceLandmarkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceLandmarkerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEE422F2A4542B400BA1A35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE01F8BE2DE110B4009E62DE /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glasses.png; sourceTree = "<group>"; };
 		CE01F8C02DE152E9009E62DE /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dragon.png; sourceTree = "<group>"; };
+		CE01F8C22DE1F747009E62DE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CE01F8C42DE1F74F009E62DE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		CE01F8C62DE1F775009E62DE /* GlassesRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlassesRenderer.cpp; sourceTree = "<group>"; };
+		CE01F8C82DE1F78E009E62DE /* GlassesRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlassesRenderer.h; sourceTree = "<group>"; };
+		CE01F8C92DE1F94B009E62DE /* OverlayView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OverlayView.mm; sourceTree = "<group>"; };
+		CE01F8CC2DE1F9C6009E62DE /* HeadPoseCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeadPoseCalculator.h; sourceTree = "<group>"; };
+		CE01F8CD2DE1F9DC009E62DE /* HeadPoseCalculator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HeadPoseCalculator.cpp; sourceTree = "<group>"; };
+		CE01F8D02DE1FA2A009E62DE /* vertex_shader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex_shader.glsl; sourceTree = "<group>"; };
+		CE01F8D22DE1FA3D009E62DE /* fragment_shader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = fragment_shader.glsl; sourceTree = "<group>"; };
+		CE01F8D52DE1FAF1009E62DE /* GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		CE01F8D62DE1FB04009E62DE /* GLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
+		CE01F8D92DE1FC1B009E62DE /* OverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		CEBC5E922DE1FE0600155D9B /* MyARGlassesSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyARGlassesSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEBC5E932DE2035E00155D9B /* FaceOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceOverlay.h; sourceTree = "<group>"; };
+		CEBC5E942DE2039B00155D9B /* FaceOverlay.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceOverlay.mm; sourceTree = "<group>"; };
+		CEBC5E972DE205CD00155D9B /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		E926CBA36E9A76BEFC7FB7DF /* Pods-FaceLandmarker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceLandmarker.release.xcconfig"; path = "Target Support Files/Pods-FaceLandmarker/Pods-FaceLandmarker.release.xcconfig"; sourceTree = "<group>"; };
 		FD9F1289B507CF7CF326D7DB /* Pods-FaceLandmarker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceLandmarker.debug.xcconfig"; path = "Target Support Files/Pods-FaceLandmarker/Pods-FaceLandmarker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,14 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE01F8C52DE1F74F009E62DE /* GLKit.framework in Frameworks */,
+				CE01F8C32DE1F747009E62DE /* OpenGLES.framework in Frameworks */,
 				CC9DBE1CC48C4DB446229F58 /* Pods_FaceLandmarker.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BFEE41FA2A45351F00BA1A35 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +107,8 @@
 		287163CB4E8FDF046324D157 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE01F8C42DE1F74F009E62DE /* GLKit.framework */,
+				CE01F8C22DE1F747009E62DE /* OpenGLES.framework */,
 				BEB757D4516FCE33E7F93E0B /* Pods_FaceLandmarker.framework */,
 			);
 			name = Frameworks;
@@ -108,27 +117,13 @@
 		BF3499DA2ACA6484007E6081 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				BF3499DE2ACA6484007E6081 /* FaceLandmarkerService.swift */,
+				BF3499DF2ACA6484007E6081 /* CameraFeedService.swift */,
+				BFD91ED82A7889DF00FD4649 /* Assets.xcassets */,
 				BF3499DB2ACA6484007E6081 /* DefaultConstants.swift */,
 				BF3499DC2ACA6484007E6081 /* InferenceConfigurationManager.swift */,
 			);
 			path = Configurations;
-			sourceTree = "<group>";
-		};
-		BF3499DD2ACA6484007E6081 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				BF3499DE2ACA6484007E6081 /* FaceLandmarkerService.swift */,
-				BF3499DF2ACA6484007E6081 /* CameraFeedService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		BF3499E02ACA6484007E6081 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				BF3499E12ACA6484007E6081 /* FaceOverlay.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		BFEE41DE2A45351E00BA1A35 = {
@@ -146,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				BFEE41E72A45351E00BA1A35 /* FaceLandmarker.app */,
-				BFEE41FD2A45351F00BA1A35 /* FaceLandmarkerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,19 +148,18 @@
 		BFEE41E92A45351E00BA1A35 /* FaceLandmarker */ = {
 			isa = PBXGroup;
 			children = (
-				CE01F8BE2DE110B4009E62DE /* glasses.png */,
-				BF3499DA2ACA6484007E6081 /* Configurations */,
-				BF3499DD2ACA6484007E6081 /* Services */,
-				BF3499E02ACA6484007E6081 /* Views */,
 				BFD91ED52A74F2F300FD4649 /* face_landmarker.task */,
+				BF3499DA2ACA6484007E6081 /* Configurations */,
+				CE01F8CB2DE1F9B4009E62DE /* library */,
 				BFEE42252A45395400BA1A35 /* ViewContoller */,
 				BFEE41EA2A45351E00BA1A35 /* AppDelegate.swift */,
 				BFEE41EC2A45351E00BA1A35 /* SceneDelegate.swift */,
+				BF3499E12ACA6484007E6081 /* FaceOverlay.swift */,
 				BFEE41F52A45351F00BA1A35 /* LaunchScreen.storyboard */,
-				BFD91ED82A7889DF00FD4649 /* Assets.xcassets */,
 				CE01F8C02DE152E9009E62DE /* dragon.png */,
 				BFEE422E2A4542B400BA1A35 /* Main.storyboard */,
 				BFEE41F82A45351F00BA1A35 /* Info.plist */,
+				CEBC5E922DE1FE0600155D9B /* MyARGlassesSDK-Bridging-Header.h */,
 			);
 			path = FaceLandmarker;
 			sourceTree = "<group>";
@@ -190,6 +183,35 @@
 			path = ViewContoller;
 			sourceTree = "<group>";
 		};
+		CE01F8CB2DE1F9B4009E62DE /* library */ = {
+			isa = PBXGroup;
+			children = (
+				CE01F8CF2DE1FA1B009E62DE /* shaders */,
+				CE01F8D52DE1FAF1009E62DE /* GLView.h */,
+				CE01F8D62DE1FB04009E62DE /* GLView.mm */,
+				CE01F8BE2DE110B4009E62DE /* glasses.png */,
+				CE01F8D92DE1FC1B009E62DE /* OverlayView.h */,
+				CE01F8C92DE1F94B009E62DE /* OverlayView.mm */,
+				CE01F8CC2DE1F9C6009E62DE /* HeadPoseCalculator.h */,
+				CE01F8CD2DE1F9DC009E62DE /* HeadPoseCalculator.cpp */,
+				CE01F8C82DE1F78E009E62DE /* GlassesRenderer.h */,
+				CE01F8C62DE1F775009E62DE /* GlassesRenderer.cpp */,
+				CEBC5E932DE2035E00155D9B /* FaceOverlay.h */,
+				CEBC5E942DE2039B00155D9B /* FaceOverlay.mm */,
+				CEBC5E972DE205CD00155D9B /* stb_image.h */,
+			);
+			path = library;
+			sourceTree = "<group>";
+		};
+		CE01F8CF2DE1FA1B009E62DE /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				CE01F8D02DE1FA2A009E62DE /* vertex_shader.glsl */,
+				CE01F8D22DE1FA3D009E62DE /* fragment_shader.glsl */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,7 +220,6 @@
 			buildConfigurationList = BFEE42112A45351F00BA1A35 /* Build configuration list for PBXNativeTarget "FaceLandmarker" */;
 			buildPhases = (
 				F01E952EE51699A6F761D123 /* [CP] Check Pods Manifest.lock */,
-				BFD91ED72A74F31600FD4649 /* Download  models */,
 				BFEE41E32A45351E00BA1A35 /* Sources */,
 				BFEE41E42A45351E00BA1A35 /* Frameworks */,
 				BFEE41E52A45351E00BA1A35 /* Resources */,
@@ -212,25 +233,6 @@
 			productReference = BFEE41E72A45351E00BA1A35 /* FaceLandmarker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BFEE41FC2A45351F00BA1A35 /* FaceLandmarkerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BFEE42142A45351F00BA1A35 /* Build configuration list for PBXNativeTarget "FaceLandmarkerTests" */;
-			buildPhases = (
-				8262D92BE4902008C2E5E89A /* [CP] Check Pods Manifest.lock */,
-				BFEE41F92A45351F00BA1A35 /* Sources */,
-				BFEE41FA2A45351F00BA1A35 /* Frameworks */,
-				BFEE41FB2A45351F00BA1A35 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BFEE41FF2A45351F00BA1A35 /* PBXTargetDependency */,
-			);
-			name = FaceLandmarkerTests;
-			productName = FaceLandmarkerTests;
-			productReference = BFEE41FD2A45351F00BA1A35 /* FaceLandmarkerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,15 +241,10 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					BFEE41E62A45351E00BA1A35 = {
 						CreatedOnToolsVersion = 14.3;
-					};
-					BFEE41FC2A45351F00BA1A35 = {
-						CreatedOnToolsVersion = 14.3;
-						LastSwiftMigration = 1430;
-						TestTargetID = BFEE41E62A45351E00BA1A35;
 					};
 				};
 			};
@@ -265,7 +262,6 @@
 			projectRoot = "";
 			targets = (
 				BFEE41E62A45351E00BA1A35 /* FaceLandmarker */,
-				BFEE41FC2A45351F00BA1A35 /* FaceLandmarkerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,64 +273,18 @@
 			files = (
 				CE01F8BF2DE110B5009E62DE /* glasses.png in Resources */,
 				BFD91ED62A74F2F300FD4649 /* face_landmarker.task in Resources */,
+				CE01F8D12DE1FA2A009E62DE /* vertex_shader.glsl in Resources */,
 				CE01F8C12DE152EA009E62DE /* dragon.png in Resources */,
 				BFEE42302A4542B400BA1A35 /* Main.storyboard in Resources */,
 				BFD91ED92A7889DF00FD4649 /* Assets.xcassets in Resources */,
+				CE01F8D32DE1FA3D009E62DE /* fragment_shader.glsl in Resources */,
 				BFEE41F72A45351F00BA1A35 /* LaunchScreen.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BFEE41FB2A45351F00BA1A35 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF3499EA2ACA720A007E6081 /* business-person.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8262D92BE4902008C2E5E89A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FaceLandmarkerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BFD91ED72A74F31600FD4649 /* Download  models */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Download  models";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/RunScripts/download_models.sh\"\n";
-		};
 		F01E952EE51699A6F761D123 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,9 +317,14 @@
 				BF3499D82ACA646E007E6081 /* RootViewController.swift in Sources */,
 				BF3499D92ACA646E007E6081 /* BottomSheetViewController.swift in Sources */,
 				BFEE41EB2A45351E00BA1A35 /* AppDelegate.swift in Sources */,
+				CEBC5E952DE2039B00155D9B /* FaceOverlay.mm in Sources */,
+				CE01F8CE2DE1F9DC009E62DE /* HeadPoseCalculator.cpp in Sources */,
 				BF3499E42ACA6484007E6081 /* FaceLandmarkerService.swift in Sources */,
 				BF3499E62ACA6484007E6081 /* FaceOverlay.swift in Sources */,
+				CE01F8C72DE1F775009E62DE /* GlassesRenderer.cpp in Sources */,
+				CE01F8D72DE1FB04009E62DE /* GLView.mm in Sources */,
 				BF3499E52ACA6484007E6081 /* CameraFeedService.swift in Sources */,
+				CE01F8CA2DE1F94B009E62DE /* OverlayView.mm in Sources */,
 				BF3499D72ACA646E007E6081 /* CameraViewController.swift in Sources */,
 				BF3499E22ACA6484007E6081 /* DefaultConstants.swift in Sources */,
 				BFEE41ED2A45351E00BA1A35 /* SceneDelegate.swift in Sources */,
@@ -377,23 +332,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BFEE41F92A45351F00BA1A35 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF3499E82ACA708D007E6081 /* FaceLandmarkerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BFEE41FF2A45351F00BA1A35 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BFEE41E62A45351E00BA1A35 /* FaceLandmarker */;
-			targetProxy = BFEE41FE2A45351F00BA1A35 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BFEE41F52A45351F00BA1A35 /* LaunchScreen.storyboard */ = {
@@ -451,6 +390,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -511,6 +451,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -558,6 +499,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceLandmarker/MyARGlassesSDK-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -592,53 +534,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceLandmarker/MyARGlassesSDK-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		BFEE42152A45351F00BA1A35 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D098A775C42220DE7F02EC0 /* Pods-FaceLandmarkerTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.mediapipe.examples.faceLandmarkerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FaceLandmarker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FaceLandmarker";
-			};
-			name = Debug;
-		};
-		BFEE42162A45351F00BA1A35 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40B88274C9701B9197F0726E /* Pods-FaceLandmarkerTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.mediapipe.examples.faceLandmarkerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FaceLandmarker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FaceLandmarker";
 			};
 			name = Release;
 		};
@@ -659,15 +557,6 @@
 			buildConfigurations = (
 				BFEE42122A45351F00BA1A35 /* Debug */,
 				BFEE42132A45351F00BA1A35 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BFEE42142A45351F00BA1A35 /* Build configuration list for PBXNativeTarget "FaceLandmarkerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BFEE42152A45351F00BA1A35 /* Debug */,
-				BFEE42162A45351F00BA1A35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

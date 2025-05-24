@@ -9,7 +9,4 @@ target 'FaceLandmarker' do
 
 end
 
-target 'FaceLandmarkerTests' do
-  inherit! :search_paths
-  # Pods for testing
-end
+
